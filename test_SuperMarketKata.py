@@ -58,5 +58,14 @@ class TestShoppingCart(unittest.TestCase):
         self.assertEqual(str(my_cart_1.add_product(my_product, 20)),
                          '{Product(73459, Milk & Eggs, yammy eggs, 12.5, small packs): 20}')
 
+    def test_remove_product(self):
+        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
+        my_cart_1 = ShoppingCart()
+        my_cart_1.add_product(my_product, 20)
+
+        self.assertEqual(str(my_cart_1.remove_product(my_product, 5)),
+                         '{Product(73459, Milk & Eggs, yammy eggs, 12.5, small packs): 15}')
+
+
 if __name__ == '__main__':
     unittest.main()
