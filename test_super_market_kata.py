@@ -45,25 +45,25 @@
 # print my_product
 
 import unittest
-from SuperMarketKata import ShoppingCart
-from SuperMarketKata import Product
+from super_market_kata import ShoppingCart
+from super_market_kata import Product
 
 
 class TestShoppingCart(unittest.TestCase):
 
     def test_add_product(self):
         my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
-        my_cart_1 = ShoppingCart()
+        my_cart = ShoppingCart()
 
-        self.assertEqual(str(my_cart_1.add_product(my_product, 20)),
+        self.assertEqual(str(my_cart.add_product(my_product, 20)),
                          '{Product(73459, Milk & Eggs, yammy eggs, 12.5, small packs): 20}')
 
     def test_remove_product(self):
         my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
-        my_cart_1 = ShoppingCart()
-        my_cart_1.add_product(my_product, 20)
+        my_cart = ShoppingCart()
+        my_cart.add_product(my_product, 20)
 
-        self.assertEqual(str(my_cart_1.remove_product(my_product, 5)),
+        self.assertEqual(str(my_cart.remove_product(my_product, 5)),
                          '{Product(73459, Milk & Eggs, yammy eggs, 12.5, small packs): 15}')
 
 
