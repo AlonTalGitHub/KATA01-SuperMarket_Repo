@@ -31,18 +31,7 @@
 #     2) add and remove products or a few units from the cart.
 #
 # -----------------------------------------------------------------------------
-#
-# Example string input. Use it to test your code.
-#
-# my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
-# my_inventory = InventoryMgmt()
-# my_inventory.add_to_stock(my_product, 200)
-# my_cart = ShoppingCart()
-# my_cart.add_product(my_product, 7)
-# my_inventory.remove_from_stock(my_product, 7)
-# print my_inventory
-# print my_cart
-# print my_product
+
 
 import unittest
 from super_market_kata import ShoppingCart
@@ -54,17 +43,20 @@ class TestShoppingCart(unittest.TestCase):
     def test_add_product(self):
         my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
         my_cart = ShoppingCart()
+        my_cart.add_product(my_product, 20)
 
-        self.assertEqual(str(my_cart.add_product(my_product, 20)),
-                         '{Product(73459, Milk & Eggs, yammy eggs, 12.5, small packs): 20}')
+        self.assertIn(my_product, my_cart.products)
+        assert len(my_cart.products) == 1
+        assert my_cart.products[my_product] == 20
 
     def test_remove_product(self):
         my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
         my_cart = ShoppingCart()
         my_cart.add_product(my_product, 20)
+        my_cart.remove_product(my_product, 5)
 
-        self.assertEqual(str(my_cart.remove_product(my_product, 5)),
-                         '{Product(73459, Milk & Eggs, yammy eggs, 12.5, small packs): 15}')
+        assert my_cart.products[my_product] == 15
+
 
 
 if __name__ == '__main__':
