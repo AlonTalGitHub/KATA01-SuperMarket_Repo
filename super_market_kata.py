@@ -89,8 +89,11 @@ class ShoppingCart(object):
 
         if product in self.products and self.products[product] >= quantity:
             self.products[product] -= quantity
-        else:
-            print ('This product is not in cart')
+        if self.products[product] < quantity:
+            print 'you tried to remove %d more %s than in cart. you removed all.' % (quantity - self.products[product],
+                                                                                   product.name)
+            self.products[product] = 0
+            print ('This product is no longer in cart')
 
     def __repr__(self):
         return '{self.__class__.__name__}({self.products})'.format(self=self)

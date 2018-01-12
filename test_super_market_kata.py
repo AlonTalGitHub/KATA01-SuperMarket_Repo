@@ -56,7 +56,9 @@ class TestShoppingCart(unittest.TestCase):
         my_cart.remove_product(my_product, 5)
 
         assert my_cart.products[my_product] == 15
+        my_cart.remove_product(my_product, 16)
 
+        assert my_cart.products[my_product] == 0
 
 
 if __name__ == '__main__':
