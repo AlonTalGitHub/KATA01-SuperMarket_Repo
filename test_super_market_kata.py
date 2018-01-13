@@ -36,6 +36,7 @@
 import unittest
 from super_market_kata import ShoppingCart
 from super_market_kata import Product
+from super_market_kata import Inventory
 
 
 class TestShoppingCart(unittest.TestCase):
@@ -60,5 +61,59 @@ class TestShoppingCart(unittest.TestCase):
         my_cart.remove_product(my_product, 16)
         assert my_cart.products[my_product] == 0
 
+class TestInventory(unittest.TestCase):
+
+    def test_add_to_stock(self):
+        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
+        my_inv = Inventory()
+        my_inv.add_to_stock(my_product, 20)
+
+        self.assertIn(my_product, my_inv.stock)
+        assert len(my_inv.stock) == 1
+        assert my_inv.stock[my_product] == 20
+
+    def test_remove_from_stock(self):
+        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
+        my_inv = Inventory()
+        my_inv.add_to_stock(my_product, 20)
+
+        my_inv.remove_from_stock(my_product, 5)
+        assert my_inv.stock[my_product] == 15
+
+        my_inv.remove_from_stock(my_product, 16)
+        assert my_inv.stock[my_product] == 0
+
+
+
 if __name__ == '__main__':
     unittest.main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

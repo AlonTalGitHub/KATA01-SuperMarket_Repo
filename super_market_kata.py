@@ -37,11 +37,6 @@
 #     2) add and remove products or a few units from the cart.
 #
 # -----------------------------------------------------------------------------
-# Examples. Use it to test your code.
-# inventory_Mgmt = {'Milk & Eggs': ['eggs', 'milk'], 'Fruits & Vegetables': ['banana', 'tomato'],
-#                   'Meet, Chicken and Fish': ['chest', 'ham'], 'Bread & Bakery': ['rye bread', 'tortilla'],
-#                   'Frozen & Salads': ['tivol', 'sandfrost']}
-# -----------------------------------------------------------------------------
 
 
 class Product(object):
@@ -57,7 +52,7 @@ class Product(object):
                ' {self.name}, {self.full_price}, {self.units})'.format(self=self)
 
 
-class InventoryMgmt(object):
+class Inventory(object):
 
     def __init__(self):
         self.stock = {}
@@ -73,8 +68,13 @@ class InventoryMgmt(object):
 
         if product in self.stock and self.stock[product] >= quantity:
             self.stock[product] -= quantity
-        else:
-            print ('This product is not in stock.')
+
+        if self.stock[product] < quantity:
+            print 'you tried to remove %d more %s than in the Inventry.' \
+                  ' you removed all.' % (quantity - self.stock[product],
+                                         product.name)
+            self.stock[product] = 0
+            print ('This product is no longer in Inventory.')
 
     def __repr__(self):
         return '{self.__class__.__name__}({self.stock})'.format(self=self)
@@ -99,10 +99,11 @@ class ShoppingCart(object):
             self.products[product] -= quantity
 
         if self.products[product] < quantity:
-            print 'you tried to remove %d more %s than in cart. you removed all.' % (quantity - self.products[product],
-                                                                                     product.name)
+            print 'you tried to remove %d more %s than in cart.' \
+                  ' you removed all.' % (quantity - self.products[product],
+                                         product.name)
             self.products[product] = 0
-            print ('This product is no longer in cart')
+            print ('This product is no longer in cart.')
 
     def __repr__(self):
         return '{self.__class__.__name__}({self.products})'.format(self=self)
