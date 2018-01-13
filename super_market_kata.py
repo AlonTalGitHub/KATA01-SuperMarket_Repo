@@ -12,28 +12,36 @@
 #
 # Inventory Managment - handle the stock. meaning, only add and remove products from the warehouse.
 # For this super market we would need a few objects:
-
+#
 # Project Description
 # ====================
-# Your task is to complete the procedures according to the specifications below
-# as well as to implement a Make-Your-Own procedure (MYOP). You are encouraged
-# to define any additional helper procedures that can assist you in accomplishing
-# a task. You are encouraged to test your code by using print statements and the
-# Test Run button.
+# In this super market we have entities witch are mainly objects:
+# The super market's objects are:
+#
+# Inventory Managment - handle the stock:
+#   1) the inventory is a list or a dictionary of products (the key) and how many in stock (value).
+#   2) add and remove products or a few units from its stock from the warehouse.
+#   3) prints the full stock.
+#
+# A Product - entity:
+#   Every Product contains the fields:
+#     1) Barcode.
+#     2) Category.
+#     3) Name.
+#     4) Full Price.
+#     5) Units of measuring.
+#
+# A Shopping Cart - entity:
+#   Every Cart Is:
+#     1) A list or a dictionary of products (the key) and how many of each one in the cart (value).
+#     2) add and remove products or a few units from the cart.
+#
 # -----------------------------------------------------------------------------
-# Example string input. Use it to test your code.
+# Examples. Use it to test your code.
 # inventory_Mgmt = {'Milk & Eggs': ['eggs', 'milk'], 'Fruits & Vegetables': ['banana', 'tomato'],
 #                   'Meet, Chicken and Fish': ['chest', 'ham'], 'Bread & Bakery': ['rye bread', 'tortilla'],
 #                   'Frozen & Salads': ['tivol', 'sandfrost']}
-# my_cart = ShoppingCart()
-# my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
-# my_inventory = InventoryMgmt()
-# my_inventory.add_to_stock(my_product, 20)
-# my_cart.add_product(my_product, 20)
-# my_inventory.remove_from_stock(my_product, 7)
-# print my_inventory
-# print my_cart
-# print my_product
+# -----------------------------------------------------------------------------
 
 
 class Product(object):
@@ -89,9 +97,10 @@ class ShoppingCart(object):
 
         if product in self.products and self.products[product] >= quantity:
             self.products[product] -= quantity
+
         if self.products[product] < quantity:
             print 'you tried to remove %d more %s than in cart. you removed all.' % (quantity - self.products[product],
-                                                                                   product.name)
+                                                                                     product.name)
             self.products[product] = 0
             print ('This product is no longer in cart')
 

@@ -53,13 +53,12 @@ class TestShoppingCart(unittest.TestCase):
         my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
         my_cart = ShoppingCart()
         my_cart.add_product(my_product, 20)
+
         my_cart.remove_product(my_product, 5)
-
         assert my_cart.products[my_product] == 15
+
         my_cart.remove_product(my_product, 16)
-
         assert my_cart.products[my_product] == 0
-
 
 if __name__ == '__main__':
     unittest.main()
