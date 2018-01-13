@@ -34,9 +34,9 @@
 
 
 import unittest
-from super_market_kata import ShoppingCart
-from super_market_kata import Product
-from super_market_kata import Inventory
+from super_market import ShoppingCart
+from super_market import Product
+from super_market import Inventory
 
 
 class TestShoppingCart(unittest.TestCase):
