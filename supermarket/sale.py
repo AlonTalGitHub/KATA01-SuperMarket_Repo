@@ -1,10 +1,19 @@
 class Sale(object):
 
-    def __init__(self):
-        self.state = 0
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-    def increment_state(self):
-        self.state += 1
+    def add(self, x, y):
+        return x + y
 
-    def clear_state(self):
-        self.state = 0
+    def subtract(self, x, y):
+        return x -y
+
+    def multiply(self, x, y):
+        return x * y
+
+    def divide(self, x, y):
+        if y == 0:
+            raise ValueError('Can not divide by zero!')
+        return x / y
