@@ -34,9 +34,10 @@
 
 
 import unittest
-from super_market import ShoppingCart
-from super_market import Product
-from super_market import Inventory
+
+from supermarket.super_market import Inventory
+from supermarket.super_market import Product
+from supermarket.super_market import ShoppingCart
 
 
 class TestShoppingCart(unittest.TestCase):
@@ -61,6 +62,7 @@ class TestShoppingCart(unittest.TestCase):
         my_cart.remove_product(my_product, 16)
         assert my_cart.products[my_product] == 0
 
+
 class TestInventory(unittest.TestCase):
 
     def test_add_to_stock(self):
@@ -84,36 +86,5 @@ class TestInventory(unittest.TestCase):
         assert my_inv.stock[my_product] == 0
 
 
-
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

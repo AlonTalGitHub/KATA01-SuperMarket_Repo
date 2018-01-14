@@ -1,5 +1,4 @@
 import unittest
-from sale_kata import Sale
 
 
 class TestSale(unittest.TestCase):
