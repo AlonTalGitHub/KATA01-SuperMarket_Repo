@@ -37,14 +37,14 @@ import unittest
 
 from supermarket.super_market import Inventory
 from supermarket.super_market import Product
-from supermarket.super_market import ShoppingCart
+from supermarket.super_market import Cart
 
 
 class TestShoppingCart(unittest.TestCase):
 
     def test_add_product(self):
         my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
-        my_cart = ShoppingCart()
+        my_cart = Cart()
         my_cart.add_product(my_product, 20)
 
         self.assertIn(my_product, my_cart.products)
@@ -53,7 +53,7 @@ class TestShoppingCart(unittest.TestCase):
 
     def test_remove_product(self):
         my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
-        my_cart = ShoppingCart()
+        my_cart = Cart()
         my_cart.add_product(my_product, 20)
 
         my_cart.remove_product(my_product, 5)

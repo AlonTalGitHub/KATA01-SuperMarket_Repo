@@ -31,7 +31,7 @@
 #     4) Full Price.
 #     5) Units of measuring.
 #
-# A Shopping Cart - entity:
+# A Cart - entity:
 #   Every Cart Is:
 #     1) A list or a dictionary of products (the key) and how many of each one in the cart (value).
 #     2) add and remove products or a few units from the cart.
@@ -80,7 +80,7 @@ class Inventory(object):
         return '{self.__class__.__name__}({self.stock})'.format(self=self)
 
 
-class ShoppingCart(object):
+class Cart(object):
 
     def __init__(self):
         self.products = {}
