@@ -40,16 +40,17 @@
 
 
 class Product(object):
-    def __init__(self, barcode, category, name, full_price, units):
+    def __init__(self, barcode, category, name, full_price, current_price, units):
         self.barcode = barcode
         self.category = category
         self.name = name
         self.full_price = full_price
+        self.current_price = current_price
         self.units = units
 
     def __repr__(self):
         return '{self.__class__.__name__}({self.barcode}, {self.category},' \
-               ' {self.name}, {self.full_price}, {self.units})'.format(self=self)
+               ' {self.name}, {self.full_price}, {self.current_price}, {self.units})'.format(self=self)
 
 
 class Inventory(object):
