@@ -12,7 +12,7 @@
 # In this super market we have entities witch are mainly objects:
 # The super market's objects are:
 #
-# Inventory Managment - handle the stock:
+# Inventory Management - handle the stock:
 #   1) the inventory is a list or a dictionary of products (the key) and how many in stock (value).
 #   2) add and remove products or a few units from its stock from the warehouse.
 #   3) prints the full stock.
@@ -43,7 +43,7 @@ from supermarket.super_market import Cart
 class TestShoppingCart(unittest.TestCase):
 
     def test_add_product(self):
-        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
+        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 12.50, 'small packs')
         my_cart = Cart()
         my_cart.add_product(my_product, 20)
 
@@ -52,7 +52,7 @@ class TestShoppingCart(unittest.TestCase):
         assert my_cart.products[my_product] == 20
 
     def test_remove_product(self):
-        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
+        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 12.50, 'small packs')
         my_cart = Cart()
         my_cart.add_product(my_product, 20)
 
@@ -66,7 +66,7 @@ class TestShoppingCart(unittest.TestCase):
 class TestInventory(unittest.TestCase):
 
     def test_add_to_stock(self):
-        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
+        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 12.50, 'small packs')
         my_inv = Inventory()
         my_inv.add_to_stock(my_product, 20)
 
@@ -75,7 +75,7 @@ class TestInventory(unittest.TestCase):
         assert my_inv.stock[my_product] == 20
 
     def test_remove_from_stock(self):
-        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 'small packs')
+        my_product = Product(73459, 'Milk & Eggs', 'yammy eggs', 12.50, 12.50, 'small packs')
         my_inv = Inventory()
         my_inv.add_to_stock(my_product, 20)
 

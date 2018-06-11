@@ -34,9 +34,11 @@ class TestOnePlusOne(unittest.TestCase):
 
         pay_for_products = OnePlusOne(product1, product3)
         pay_for_products2 = OnePlusOne(product1, product2)
+        print cart
 
         self.assertEqual(pay_for_products.apply(cart), 111)
         self.assertEqual(pay_for_products2.apply(cart), 25.0)
+        assert cart.products
         self.assertEqual(cart.products[product1], 2)
         self.assertEqual(cart.products[product2], 2)
 
